@@ -30,7 +30,7 @@
     return self;
 }
 
--(NSDictionary*)serialize
+-(NSData*)serialize
 {
     NSDictionary *dictionary = [[NSDictionary alloc] init];
     
@@ -39,8 +39,23 @@
     [dictionary setValue:[self.item serialize] forKey:@"menuItem"];
     [dictionary setValue:self.date forKey:@"date"];
     
-    return dictionary;
+    
+    NSData *json;
+    NSError *error = nil;
+    
+    if ([NSJSONSerialization isValidJSONObject:dictionary]) {
+        
+        json = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+        
+        return json;
+    }
+    else
+    {
+        
+        return nil;
+    }
 }
+
 
 -(Order*)deSerialize:(NSDictionary *)dictionary
 {
@@ -50,6 +65,7 @@
     item = [item deSerialize:[dictionary valueForKey:@"menuItem"]];
     
     Order *order = [[Order alloc] initWithUser:[dictionary valueForKey:@"user"] menuItem:item andDate:[dictionary valueForKey:@"date"]];
+    
     
     return order;
 }
