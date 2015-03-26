@@ -12,12 +12,14 @@
 @interface Order : NSObject
 
 
-@property MenuItem *menuItem;
+@property MenuItem *item;
 @property NSDate *date;
 @property NSString *user;
 
 -(id)initWithUser:(NSString*)user menuItem:(MenuItem*)item andDate:(NSDate*)date;
 
+-(NSDictionary*)serialize;
 
+-(Order*)deSerialize:(NSDictionary*)dictionary;
 
 @end

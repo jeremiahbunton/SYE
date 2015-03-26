@@ -21,5 +21,8 @@
 
 -(NSString*)toString;
 
+-(NSDictionary*)serialize;
+
+-(MenuItem*)deSerialize:(NSDictionary*)dictionary;
 
 @end

@@ -37,4 +37,25 @@
     return tmp;
 }
 
+
+-(NSDictionary*)serialize
+{
+    NSDictionary *dictionary = [[NSDictionary alloc]init];
+    
+    [dictionary setValue:self.name forKey:@"name"];
+    [dictionary setValue:self.price forKey:@"price"];
+    [dictionary setValue:self.description forKey:@"description"];
+    
+    return dictionary;
+}
+
+-(MenuItem*)deSerialize:(NSDictionary *)dictionary
+{
+    MenuItem *menuItem = [[MenuItem alloc]initWithName:[dictionary valueForKey:@"name"] price:[dictionary valueForKey:@"price"] andDescription:[dictionary valueForKey:@"description"]];
+    
+    return menuItem;
+}
+
+
+
 @end
