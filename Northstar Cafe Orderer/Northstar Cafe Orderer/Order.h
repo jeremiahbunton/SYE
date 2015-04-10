@@ -18,8 +18,8 @@
 
 -(id)initWithUser:(NSString*)user menuItem:(MenuItem*)item andDate:(NSDate*)date;
 
--(NSDictionary*)serialize;
+-(NSDictionary*)serialize:(Order* )order;
 
--(Order*)deSerialize:(NSDictionary*)dictionary;
++(Order*)deSerialize:(NSDictionary*)dictionary;
 
 @end

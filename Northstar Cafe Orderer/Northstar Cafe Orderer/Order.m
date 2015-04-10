@@ -30,14 +30,14 @@
     return self;
 }
 
--(NSString*)serialize
++(NSString*)serialize:(Order *)order
 {
     NSDictionary *dictionary = [[NSDictionary alloc] init];
     
     
-    [dictionary setValue:self.user forKey:@"user"];
-    [dictionary setValue:[self.item serialize] forKey:@"menuItem"];
-    [dictionary setValue:self.date forKey:@"date"];
+    [dictionary setValue:order.user forKey:@"user"];
+    [dictionary setValue:[MenuItem serialize: order.item] forKey:@"menuItem"];
+    [dictionary setValue:order.date forKey:@"date"];
     
     
     NSData *json;
@@ -64,12 +64,10 @@
 }
 
 
--(Order*)deSerialize:(NSDictionary *)dictionary
++(Order*)deSerialize:(NSDictionary *)dictionary
 {
     // Is this legal to create a MenuItem object to use its deSerialize function to replace the Object?
-    MenuItem *item = [[MenuItem alloc]init];
-    
-    item = [item deSerialize:[dictionary valueForKey:@"menuItem"]];
+    MenuItem *item = [MenuItem deSerialize:[dictionary valueForKey:@"menuItem"]];
     
     Order *order = [[Order alloc] initWithUser:[dictionary valueForKey:@"user"] menuItem:item andDate:[dictionary valueForKey:@"date"]];
     

@@ -10,6 +10,8 @@
 #import "ItemViewController.h"
 #import "ConfirmedOrderViewController.h"
 
+#import <AWSDynamoDB/AWSDynamoDB.h>
+
 @interface OrderConfirmationViewController : UIViewController  <UITextFieldDelegate>
 
 
