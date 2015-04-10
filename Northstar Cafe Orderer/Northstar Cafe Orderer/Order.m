@@ -30,7 +30,7 @@
     return self;
 }
 
--(NSData*)serialize
+-(NSString*)serialize
 {
     NSDictionary *dictionary = [[NSDictionary alloc] init];
     
@@ -42,24 +42,31 @@
     
     NSData *json;
     NSError *error = nil;
+    NSString *jsonString;
+    
     
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
         
-        json = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:&error];
         
-        return json;
+        // Creating the JSON object from a dictionary
+        json = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+        
+        // Turning the JSON object into a string to send to the server
+        jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+        
+        return jsonString;
     }
     else
     {
-        
-        return nil;
+        // Return empty JSON if
+        return @"{}";
     }
 }
 
 
 -(Order*)deSerialize:(NSDictionary *)dictionary
 {
-    
+    // Is this legal to create a MenuItem object to use its deSerialize function to replace the Object?
     MenuItem *item = [[MenuItem alloc]init];
     
     item = [item deSerialize:[dictionary valueForKey:@"menuItem"]];
