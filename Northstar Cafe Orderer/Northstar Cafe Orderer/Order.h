@@ -18,7 +18,7 @@
 
 -(id)initWithUser:(NSString*)user menuItem:(MenuItem*)item andDate:(NSDate*)date;
 
--(NSDictionary*)serialize:(Order* )order;
++(NSDictionary*)serialize:(Order* )order;
 
 +(Order*)deSerialize:(NSDictionary*)dictionary;
 

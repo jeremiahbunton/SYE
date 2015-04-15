@@ -10,7 +10,8 @@
 #import "ItemViewController.h"
 #import "ConfirmedOrderViewController.h"
 
-#import <AWSDynamoDB/AWSDynamoDB.h>
+//#import <AWSDynamoDB/AWSDynamoDB.h>
+//#import <AWSCore/AWSCore.h>
 
 @interface OrderConfirmationViewController : UIViewController  <UITextFieldDelegate>
 
@@ -26,6 +27,8 @@
 
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField;
+
+- (IBAction)confirmOrder:(id)sender;
 
 
 

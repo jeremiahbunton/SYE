@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 
+
 @end
 
 
@@ -103,4 +104,7 @@
 }
 
 
+- (IBAction)confirmOrder:(id)sender {
+    
+}
 @end

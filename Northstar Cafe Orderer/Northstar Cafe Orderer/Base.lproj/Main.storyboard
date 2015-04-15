@@ -211,6 +211,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="confirmOrder:" destination="4ax-dd-RUf" eventType="touchUpInside" id="u9a-0d-rNb"/>
                                     <segue destination="EWf-Kq-MDf" kind="push" identifier="orderConfirmationPage" id="87e-W1-eih"/>
                                 </connections>
                             </button>
