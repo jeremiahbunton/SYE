@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B12CC729C04B851D1A3059B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B781B7837076FC834736EB4 /* libPods.a */; };
+		E31514691ADF0B9E003DFB9E /* AWSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E31514681ADF0B9E003DFB9E /* AWSOrder.m */; };
 		E38B709B1A72E46600BEB0BB /* OrderConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */; };
 		E3A734F51A3B78CB00F0321A /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F41A3B78CB00F0321A /* MainMenuViewController.m */; };
 		E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F71A3B798A00F0321A /* ItemViewController.m */; };
@@ -45,6 +46,8 @@
 		07911F96BE363BC8041E33B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9B781B7837076FC834736EB4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836BC56AEBA0AD6A0B6D0C0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E31514671ADF0B9E003DFB9E /* AWSOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSOrder.h; sourceTree = "<group>"; };
+		E31514681ADF0B9E003DFB9E /* AWSOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSOrder.m; sourceTree = "<group>"; };
 		E38B70991A72E46600BEB0BB /* OrderConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderConfirmationViewController.h; sourceTree = "<group>"; };
 		E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderConfirmationViewController.m; sourceTree = "<group>"; };
 		E3A734F31A3B78CB00F0321A /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			children = (
 				E3C337001A3A51B100654DE0 /* AppDelegate.h */,
 				E3C337011A3A51B100654DE0 /* AppDelegate.m */,
+				E31514671ADF0B9E003DFB9E /* AWSOrder.h */,
+				E31514681ADF0B9E003DFB9E /* AWSOrder.m */,
 				E3C337031A3A51B100654DE0 /* Main.storyboard */,
 				E3B805C11AAE34140033692B /* ConfirmedOrderViewController.h */,
 				E3B805C21AAE34140033692B /* ConfirmedOrderViewController.m */,
@@ -342,6 +347,7 @@
 				E3C337081A3A51B100654DE0 /* ViewController.m in Sources */,
 				E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */,
 				E3B805C61AAE34E20033692B /* Order.m in Sources */,
+				E31514691ADF0B9E003DFB9E /* AWSOrder.m in Sources */,
 				E3A734FB1A3B79FA00F0321A /* MenuItem.m in Sources */,
 				E3C337021A3A51B100654DE0 /* AppDelegate.m in Sources */,
 				E3C336FE1A3A51B100654DE0 /* main.m in Sources */,

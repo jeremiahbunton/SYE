@@ -12,11 +12,11 @@
 @interface Order : NSObject
 
 
-@property MenuItem *item;
+@property NSString *details;
 @property NSDate *date;
 @property NSString *user;
 
--(id)initWithUser:(NSString*)user menuItem:(MenuItem*)item andDate:(NSDate*)date;
+-(id)initWithUser:(NSString*)user orderDetails:(NSString*)item andDate:(NSDate*)date;
 
 +(NSDictionary*)serialize:(Order* )order;
 

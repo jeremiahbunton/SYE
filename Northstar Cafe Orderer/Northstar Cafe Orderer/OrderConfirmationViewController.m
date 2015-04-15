@@ -7,6 +7,13 @@
 //
 
 #import "OrderConfirmationViewController.h"
+#import "Order.h"
+#import "AWSOrder.h"
+
+#import <AWSDynamoDB/AWSDynamoDB.h>
+#import <AWSCore/AWSCore.h>
+#import <AWSCognito/AWSCognito.h>
+
 
 @interface OrderConfirmationViewController ()
 
@@ -35,6 +42,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    // Initialize the Amazon Cognito credentials provider
+    
+    
+    
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
+                                                          initWithRegionType:AWSRegionUSEast1
+                                                          identityPoolId:@"us-east-1:f2fa75a7-72e1-4b0e-a91c-c6102bd033c6"];
+    
+    
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+    
+    
+    
     
     _order = [[NSMutableString alloc] init];
     
@@ -105,6 +129,41 @@
 
 
 - (IBAction)confirmOrder:(id)sender {
+    /**
+    Order *order = [[Order alloc] init];
+    
+    order.user = @"jbunt11";
+    order.date = [[NSDate alloc] init];
+    order.details = _order;
+     */
+    
+    AWSOrder *order = [[AWSOrder alloc]init];
+    order.userName = _user;
+    order.order = _order;
+    
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"yyyy"]; // Date formater
+    NSString *dateString = [dateformate stringFromDate:[NSDate date]];
+    
+    order.orderDate = dateString;
+    
+    
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    
+    [[dynamoDBObjectMapper save:order]
+     continueWithBlock:^id(BFTask *task) {
+         if (task.error) {
+             NSLog(@"The request failed. Error: [%@]", task.error);
+         }
+         if (task.exception) {
+             NSLog(@"The request failed. Exception: [%@]", task.exception);
+         }
+         if (task.result) {
+             //Do something with the result.
+         }
+         return nil;
+     }];
+    
     
 }
 @end
