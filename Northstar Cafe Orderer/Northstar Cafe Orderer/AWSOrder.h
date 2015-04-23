@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *orderDate;
 @property (nonatomic, strong) NSString *order;
+@property (nonatomic, strong) NSString *orderConfirmationNumber;
 
 @end

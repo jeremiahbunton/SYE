@@ -9,7 +9,8 @@
 #import "ConfirmedOrderViewController.h"
 
 @interface ConfirmedOrderViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *orderConfirmationView;
 
 @end
 
@@ -28,7 +29,7 @@
 {
     [super viewDidLoad];
     NSLog(@"testing to see if username is set");
-    _testLabel.text = _user;
+    _orderConfirmationView.text = _user;
     
     
     // Do any additional setup after loading the view.

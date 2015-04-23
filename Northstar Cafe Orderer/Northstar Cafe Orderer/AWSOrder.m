@@ -22,6 +22,6 @@
 }
 
 + (NSString *)hashKeyAttribute {
-    return @"userName";
+    return @"orderConfirmationNumber";
 }
 @end

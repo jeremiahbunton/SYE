@@ -79,6 +79,7 @@
     [_order appendString:@"\n\n"];
     [_order appendString:@"Extras: "];
     [_order appendString:_extrasInputTextField.text];
+    _extrasInputTextField.text = @"";
     
     _extrasInputTextField.delegate = self;
     _orderConfirmationView.text = _order;
@@ -137,16 +138,24 @@
     order.details = _order;
      */
     
+    
+    
     AWSOrder *order = [[AWSOrder alloc]init];
     order.userName = _user;
     order.order = _order;
     
-    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    [dateformate setDateFormat:@"yyyy"]; // Date formater
-    NSString *dateString = [dateformate stringFromDate:[NSDate date]];
+    
+    NSDateFormatter *dateformater =[[NSDateFormatter alloc]init];
+    [dateformater setDateFormat:@"MM dd yyyy hh mm ss"]; // Date formater
+    NSString *dateString = [dateformater stringFromDate:[NSDate date]];
+    
+    
     
     order.orderDate = dateString;
     
+    NSString *tmp = [NSString stringWithFormat:@"%@%@", _user, [dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
+    
+    order.orderConfirmationNumber = tmp;
     
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     
