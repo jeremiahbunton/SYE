@@ -28,6 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.navigationItem setHidesBackButton:YES];
     NSLog(@"testing to see if username is set");
     
     NSMutableString *orderConfirmation = [[NSMutableString alloc]init];
@@ -35,7 +37,9 @@
     [orderConfirmation appendString:@"Thank you for your order, your order details are below"];
     [orderConfirmation appendString:@"\n\n"];
     [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"User: ", _AWSOrder.userName]];
-    [orderConfirmation appendString:@"\n\n"];
+    [orderConfirmation appendString:@"\n"];
+    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Date and Time" ,_AWSOrder.orderDate]];
+    [orderConfirmation appendString:@"\n"];
         [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Confirmation Number: ", _AWSOrder.orderConfirmationNumber]];
     [orderConfirmation appendString:@"\n\n"];
     [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Order: ", _AWSOrder.order]];
