@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
-
+@property (nonatomic, strong) NSDateFormatter *dateformater;
+@property (nonatomic, strong) NSString *dateString;
+@property (nonatomic, strong) NSString *orderConfirmationNumber;
 
 @end
 
@@ -46,7 +48,12 @@
     
     // Initialize the Amazon Cognito credentials provider
     
+    _dateformater =[[NSDateFormatter alloc]init];
+    [_dateformater setDateFormat:@"MM dd yyyy hh mm ss"]; // Date formater
+    _dateString = [_dateformater stringFromDate:[NSDate date]];
     
+    
+    _orderConfirmationNumber = [NSString stringWithFormat:@"%@%@", _user, [_dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
     
     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
                                                           initWithRegionType:AWSRegionUSEast1
@@ -76,7 +83,7 @@
     
     [_order appendString:@"Ingredients: "];
     [_order appendString:_menuItem.toString];
-    [_order appendString:@"\n\n"];
+    [_order appendString:@"\n"];
     [_order appendString:@"Extras: "];
     [_order appendString:_extrasInputTextField.text];
     _extrasInputTextField.text = @"";
@@ -121,41 +128,31 @@
 {
     ConfirmedOrderViewController *covc = [segue destinationViewController];
     
-    [covc setMenuItem:_menuItem];
-    [covc setUser:_user];
-    
+    covc.AWSOrder = [self setAWSOrder];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
 
-- (IBAction)confirmOrder:(id)sender {
-    /**
-    Order *order = [[Order alloc] init];
-    
-    order.user = @"jbunt11";
-    order.date = [[NSDate alloc] init];
-    order.details = _order;
-     */
-    
-    
-    
+- (AWSOrder *)setAWSOrder {
     AWSOrder *order = [[AWSOrder alloc]init];
+    
     order.userName = _user;
     order.order = _order;
+    order.orderDate = _dateString;
+    order.orderConfirmationNumber = _orderConfirmationNumber;
+    return order;
+}
+
+
+
+- (IBAction)confirmOrder:(id)sender {
     
     
-    NSDateFormatter *dateformater =[[NSDateFormatter alloc]init];
-    [dateformater setDateFormat:@"MM dd yyyy hh mm ss"]; // Date formater
-    NSString *dateString = [dateformater stringFromDate:[NSDate date]];
+    AWSOrder *order;
+    order = [self setAWSOrder];
     
     
-    
-    order.orderDate = dateString;
-    
-    NSString *tmp = [NSString stringWithFormat:@"%@%@", _user, [dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
-    
-    order.orderConfirmationNumber = tmp;
     
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     

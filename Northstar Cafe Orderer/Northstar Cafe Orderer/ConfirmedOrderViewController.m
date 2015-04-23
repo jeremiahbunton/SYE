@@ -29,7 +29,21 @@
 {
     [super viewDidLoad];
     NSLog(@"testing to see if username is set");
-    _orderConfirmationView.text = _user;
+    
+    NSMutableString *orderConfirmation = [[NSMutableString alloc]init];
+    
+    [orderConfirmation appendString:@"Thank you for your order, your order details are below"];
+    [orderConfirmation appendString:@"\n\n"];
+    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"User: ", _AWSOrder.userName]];
+    [orderConfirmation appendString:@"\n\n"];
+        [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Confirmation Number: ", _AWSOrder.orderConfirmationNumber]];
+    [orderConfirmation appendString:@"\n\n"];
+    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Order: ", _AWSOrder.order]];
+    
+
+    
+    
+    _orderConfirmationView.text = orderConfirmation;
     
     
     // Do any additional setup after loading the view.
@@ -40,17 +54,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
--(void)setMenuItem:(MenuItem *)menuItem{
-    _menuItem = menuItem;
-}
-
--(void) setUser:(NSString *)user{
-    _user = user;
-}
-
-
 
 
 /*

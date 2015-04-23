@@ -15,8 +15,9 @@
 @property NSString *details;
 @property NSDate *date;
 @property NSString *user;
+@property NSString *confirmationNumber;
 
--(id)initWithUser:(NSString*)user orderDetails:(NSString*)item andDate:(NSDate*)date;
+-(id)initWithUser:(NSString*)user orderDetails:(NSString*)item date:(NSString*)date orderConfirmationNumber:(NSString*)confirmationNumber;
 
 +(NSDictionary*)serialize:(Order* )order;
 

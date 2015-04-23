@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderConfirmationViewController.h"
-#import "MenuItem.h"
+#import "AWSOrder.h"
 
 
 @interface ConfirmedOrderViewController : UIViewController
 
-@property (nonatomic, strong) MenuItem *menuItem;
-
-@property (nonatomic, strong) NSString *user;
-
+@property AWSOrder *AWSOrder;
 @end
