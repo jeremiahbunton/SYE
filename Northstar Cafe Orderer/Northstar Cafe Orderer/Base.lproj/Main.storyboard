@@ -88,7 +88,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dUV-GK-eqL" kind="push" identifier="breakfast" id="K2e-xY-RK9"/>
+                                    <action selector="breakfastButton:" destination="ZoF-xT-biL" eventType="touchUpInside" id="SsK-G4-xcA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-8C-ubM">
@@ -96,31 +96,28 @@
                                 <state key="normal" title="Fryer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="dUV-GK-eqL" kind="push" identifier="fryer" id="Xe1-ij-G1J"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-c7-EG3">
-                                <rect key="frame" x="68" y="269" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="59" y="269" width="30" height="30"/>
+                                <state key="normal" title="Deli">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40d-Sp-eyz">
-                                <rect key="frame" x="185" y="269" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="185" y="269" width="44" height="30"/>
+                                <state key="normal" title="Wraps">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yp-s5-Snf">
-                                <rect key="frame" x="68" y="373" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="59" y="373" width="59" height="30"/>
+                                <state key="normal" title="Specials">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daG-zD-la3">
-                                <rect key="frame" x="185" y="373" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="185" y="373" width="100" height="30"/>
+                                <state key="normal" title="Recent Orders">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -128,6 +125,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uGs-FX-uil"/>
+                    <connections>
+                        <segue destination="dUV-GK-eqL" kind="push" identifier="toItemView" id="O43-Fr-7Fs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nc5-ul-Iby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eva-rJ-mBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="345" y="-635"/>
+            <point key="canvasLocation" x="241" y="122"/>
         </scene>
         <!--Order Confirmation View Controller-->
         <scene sceneID="wun-xC-QNi">
@@ -322,6 +322,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Lin-pN-FgS"/>
-        <segue reference="K2e-xY-RK9"/>
     </inferredMetricsTieBreakers>
 </document>

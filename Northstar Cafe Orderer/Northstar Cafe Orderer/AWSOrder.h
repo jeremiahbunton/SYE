@@ -14,8 +14,8 @@
 @interface AWSOrder : AWSDynamoDBObjectModel  <AWSDynamoDBModeling>
 
 
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *orderDate;
+@property (nonatomic, strong) NSString *userID;
+@property (nonatomic, strong) NSString *orderDates;
 @property (nonatomic, strong) NSString *order;
 @property (nonatomic, strong) NSString *orderConfirmationNumber;
 

@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmedOrderViewController.h"
+#import "MainMenuViewController.h"
 
 @interface ConfirmedOrderViewController ()
 
@@ -30,15 +31,15 @@
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:YES];
-    NSLog(@"testing to see if username is set");
+    
     
     NSMutableString *orderConfirmation = [[NSMutableString alloc]init];
     
     [orderConfirmation appendString:@"Thank you for your order, your order details are below"];
     [orderConfirmation appendString:@"\n\n"];
-    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"User: ", _AWSOrder.userName]];
+    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"User: ", _AWSOrder.userID]];
     [orderConfirmation appendString:@"\n"];
-    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Date and Time" ,_AWSOrder.orderDate]];
+    [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Date and Time" ,_AWSOrder.orderDates]];
     [orderConfirmation appendString:@"\n"];
         [orderConfirmation appendString:[NSString stringWithFormat:@"%@ %@", @"Confirmation Number: ", _AWSOrder.orderConfirmationNumber]];
     [orderConfirmation appendString:@"\n\n"];
@@ -60,15 +61,17 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    MainMenuViewController *mmvc = [segue destinationViewController];
+    
+    mmvc.user = _user;
+
 }
-*/
+
 
 @end

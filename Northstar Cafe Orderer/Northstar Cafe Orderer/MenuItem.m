@@ -15,7 +15,7 @@
 
 @synthesize name, price, description;
 
--(id) initWithName:(NSString *)_name price:(NSNumber *)_price andDescription:(NSString *)_description
+-(id) initWithName:(NSString *)_name price:(NSString *)_price andDescription:(NSString *)_description
 {
     self = [super init];
     if (self) {

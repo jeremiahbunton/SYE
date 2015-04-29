@@ -14,14 +14,14 @@
 
 
 + (NSString *)dynamoDBTableName {
-    return @"orders";
+    return @"order";
 }
 
 + (NSString *)rangeKeyAttribute {
-    return @"orderDate";
+    return @"orderDates";
 }
 
 + (NSString *)hashKeyAttribute {
-    return @"orderConfirmationNumber";
+    return @"userID";
 }
 @end

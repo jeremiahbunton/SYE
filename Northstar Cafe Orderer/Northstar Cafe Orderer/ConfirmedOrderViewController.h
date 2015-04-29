@@ -14,4 +14,5 @@
 @interface ConfirmedOrderViewController : UIViewController
 
 @property AWSOrder *AWSOrder;
+@property NSString *user;
 @end

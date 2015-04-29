@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Menu.h"
+#import "MenuItem.h"
 #import "OrderConfirmationViewController.h"
 #import "ConfirmedOrderViewController.h"
 
 @interface ItemViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
-@property Menu* menu;
+@property NSMutableArray* menu;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSString* test;
 @property (nonatomic, strong) NSString *user;
 
--(void)setM:(Menu*)mainMenu;
 @end

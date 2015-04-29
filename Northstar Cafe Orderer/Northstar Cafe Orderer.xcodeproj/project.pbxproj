@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2B12CC729C04B851D1A3059B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B781B7837076FC834736EB4 /* libPods.a */; };
+		E30A038D1AEEE9E90088EF9F /* AWSBreakfastMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E30A038C1AEEE9E90088EF9F /* AWSBreakfastMenu.m */; };
 		E31514691ADF0B9E003DFB9E /* AWSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E31514681ADF0B9E003DFB9E /* AWSOrder.m */; };
 		E38B709B1A72E46600BEB0BB /* OrderConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */; };
 		E3A734F51A3B78CB00F0321A /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F41A3B78CB00F0321A /* MainMenuViewController.m */; };
 		E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F71A3B798A00F0321A /* ItemViewController.m */; };
 		E3A734FB1A3B79FA00F0321A /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734FA1A3B79FA00F0321A /* MenuItem.m */; };
-		E3A734FE1A3B7A0900F0321A /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734FD1A3B7A0900F0321A /* Menu.m */; };
 		E3B805C31AAE34140033692B /* ConfirmedOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B805C21AAE34140033692B /* ConfirmedOrderViewController.m */; };
 		E3B805C61AAE34E20033692B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B805C51AAE34E20033692B /* Order.m */; };
 		E3C336F21A3A51B100654DE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C336F11A3A51B100654DE0 /* Foundation.framework */; };
@@ -46,6 +46,8 @@
 		07911F96BE363BC8041E33B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9B781B7837076FC834736EB4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836BC56AEBA0AD6A0B6D0C0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E30A038B1AEEE9E90088EF9F /* AWSBreakfastMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSBreakfastMenu.h; sourceTree = "<group>"; };
+		E30A038C1AEEE9E90088EF9F /* AWSBreakfastMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSBreakfastMenu.m; sourceTree = "<group>"; };
 		E31514671ADF0B9E003DFB9E /* AWSOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSOrder.h; sourceTree = "<group>"; };
 		E31514681ADF0B9E003DFB9E /* AWSOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSOrder.m; sourceTree = "<group>"; };
 		E38B70991A72E46600BEB0BB /* OrderConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderConfirmationViewController.h; sourceTree = "<group>"; };
@@ -56,8 +58,6 @@
 		E3A734F71A3B798A00F0321A /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		E3A734F91A3B79FA00F0321A /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E3A734FA1A3B79FA00F0321A /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		E3A734FC1A3B7A0900F0321A /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
-		E3A734FD1A3B7A0900F0321A /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		E3B805C11AAE34140033692B /* ConfirmedOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedOrderViewController.h; sourceTree = "<group>"; };
 		E3B805C21AAE34140033692B /* ConfirmedOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedOrderViewController.m; sourceTree = "<group>"; };
 		E3B805C41AAE34E20033692B /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
@@ -156,6 +156,8 @@
 				E3C337011A3A51B100654DE0 /* AppDelegate.m */,
 				E31514671ADF0B9E003DFB9E /* AWSOrder.h */,
 				E31514681ADF0B9E003DFB9E /* AWSOrder.m */,
+				E30A038B1AEEE9E90088EF9F /* AWSBreakfastMenu.h */,
+				E30A038C1AEEE9E90088EF9F /* AWSBreakfastMenu.m */,
 				E3C337031A3A51B100654DE0 /* Main.storyboard */,
 				E3B805C11AAE34140033692B /* ConfirmedOrderViewController.h */,
 				E3B805C21AAE34140033692B /* ConfirmedOrderViewController.m */,
@@ -167,8 +169,6 @@
 				E3A734F71A3B798A00F0321A /* ItemViewController.m */,
 				E3A734F91A3B79FA00F0321A /* MenuItem.h */,
 				E3A734FA1A3B79FA00F0321A /* MenuItem.m */,
-				E3A734FC1A3B7A0900F0321A /* Menu.h */,
-				E3A734FD1A3B7A0900F0321A /* Menu.m */,
 				E3A734F31A3B78CB00F0321A /* MainMenuViewController.h */,
 				E3A734F41A3B78CB00F0321A /* MainMenuViewController.m */,
 				E3C337061A3A51B100654DE0 /* ViewController.h */,
@@ -342,7 +342,6 @@
 			files = (
 				E38B709B1A72E46600BEB0BB /* OrderConfirmationViewController.m in Sources */,
 				E3A734F51A3B78CB00F0321A /* MainMenuViewController.m in Sources */,
-				E3A734FE1A3B7A0900F0321A /* Menu.m in Sources */,
 				E3B805C31AAE34140033692B /* ConfirmedOrderViewController.m in Sources */,
 				E3C337081A3A51B100654DE0 /* ViewController.m in Sources */,
 				E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */,
@@ -351,6 +350,7 @@
 				E3A734FB1A3B79FA00F0321A /* MenuItem.m in Sources */,
 				E3C337021A3A51B100654DE0 /* AppDelegate.m in Sources */,
 				E3C336FE1A3A51B100654DE0 /* main.m in Sources */,
+				E30A038D1AEEE9E90088EF9F /* AWSBreakfastMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

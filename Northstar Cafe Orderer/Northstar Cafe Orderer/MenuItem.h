@@ -12,12 +12,11 @@
 
 
 
-@property NSString *name, *description;
-@property NSNumber *price;
+@property NSString *name, *description, *price;
 
 
 
--(id)initWithName:(NSString*) _name price:(NSNumber*) _price andDescription:(NSString*) _description;
+-(id)initWithName:(NSString*) _name price:(NSString*) _price andDescription:(NSString*) _description;
 
 -(NSString*)toString;
 

@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Menu.h"
+#import "MenuItem.h"
+#import "AWSBreakfastMenu.h"
 #import "ItemViewController.h"
 
 @interface MainMenuViewController : UIViewController
 
 
-@property NSDictionary *dictionary;
-@property Menu *menu;
+@property MenuItem *menuItem;
+@property NSMutableArray *menu;
 @property (nonatomic, strong) NSString *user;
 
+- (NSMutableArray*)getBreakfastMenu;
+- (IBAction)breakfastButton:(id)sender;
 
 @end

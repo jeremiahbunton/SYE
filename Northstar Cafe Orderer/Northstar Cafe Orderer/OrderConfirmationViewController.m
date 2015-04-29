@@ -50,10 +50,6 @@
     
     _dateformater =[[NSDateFormatter alloc]init];
     [_dateformater setDateFormat:@"MM dd yyyy hh mm ss"]; // Date formater
-    _dateString = [_dateformater stringFromDate:[NSDate date]];
-    
-    
-    _orderConfirmationNumber = [NSString stringWithFormat:@"%@%@", _user, [_dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
     
     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
                                                           initWithRegionType:AWSRegionUSEast1
@@ -75,9 +71,9 @@
     [_nameLabel.font fontWithSize:12];
     
     
-    NSString *tmp = [_menuItem.price stringValue];
+    
     _priceLabel.text = @"Price: ";
-    _priceLabel.text = [_priceLabel.text stringByAppendingString:tmp];
+    _priceLabel.text = _menuItem.price;
     [_priceLabel.font fontWithSize:12];
     
     
@@ -129,6 +125,7 @@
     ConfirmedOrderViewController *covc = [segue destinationViewController];
     
     covc.AWSOrder = [self setAWSOrder];
+    covc.user = _user;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
@@ -137,9 +134,15 @@
 - (AWSOrder *)setAWSOrder {
     AWSOrder *order = [[AWSOrder alloc]init];
     
-    order.userName = _user;
+    _dateString = [_dateformater stringFromDate:[NSDate date]];
+    
+    
+    _orderConfirmationNumber = [NSString stringWithFormat:@"%@%@", _user, [_dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
+
+    
+    order.userID = _user;
     order.order = _order;
-    order.orderDate = _dateString;
+    order.orderDates = _dateString;
     order.orderConfirmationNumber = _orderConfirmationNumber;
     return order;
 }

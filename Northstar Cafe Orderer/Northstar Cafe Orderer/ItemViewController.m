@@ -15,7 +15,7 @@
 @implementation ItemViewController
 
 
-@synthesize menu, test;
+
 
 
 
@@ -39,7 +39,9 @@
 // Must have this method implemented to tell the UITableView how many rows it needs to prepare for.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [menu.menuItems count];
+    NSLog(@"printing the number of items in the menu +++++++++++++");
+    NSLog(@"%lu", (unsigned long)[_menu count]);
+    return [_menu count];
 }
 
 
@@ -52,10 +54,12 @@
     
     
     // Get each menuItem for each row
-    MenuItem *item = [menu.menuItems objectAtIndex:indexPath.row];
+    MenuItem *item = [_menu objectAtIndex:indexPath.row];
+    //NSLog(@"Printing menuItem ++++++++++++++");
+    //[item toString];
     
     cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",item.price];
+    cell.detailTextLabel.text = item.price;
     
     return cell;
 }
@@ -72,12 +76,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setM:(Menu*)mainMenu
-{
-    menu = mainMenu;
-    
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -85,7 +83,7 @@
     
     OrderConfirmationViewController *ocvc = [segue destinationViewController];
     
-    [ocvc setMenuItem:[menu.menuItems objectAtIndex:indexPath.row]];
+    [ocvc setMenuItem:[_menu objectAtIndex:indexPath.row]];
     [ocvc setUser:_user];
     
     // Get the new view controller using [segue destinationViewController].
