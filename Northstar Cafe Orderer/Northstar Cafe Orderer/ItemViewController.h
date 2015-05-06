@@ -16,6 +16,7 @@
 
 @property NSMutableArray* menu;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSString *menuName;
 
 @property NSString* test;
 @property (nonatomic, strong) NSString *user;

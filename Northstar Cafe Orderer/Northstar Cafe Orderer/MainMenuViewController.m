@@ -42,19 +42,7 @@
     
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     
-    
-    /**
-     dictionary = [[NSDictionary alloc]initWithObjectsAndKeys:
-     [[NSDictionary alloc] initWithObjectsAndKeys:
-     [[NSDictionary alloc]initWithObjectsAndKeys:@"waffle", @"name", @2.99, @"price", @"flour, water, eggs, sugar, and strawberries", @"description", nil], @"waffle",
-     [[NSDictionary alloc]initWithObjectsAndKeys:@"french toast", @"name", @4.99, @"price", @"flour, water, eggs, sugar, and strawberries", @"description", nil], @"french toast",
-     [[NSDictionary alloc]initWithObjectsAndKeys:@"pancake", @"name", @3.99, @"price", @"flour, water, eggs, sugar, and strawberries", @"description", nil], @"pancake",
-     nil],
-     @"breakfast", nil];
-     
-     */
-    
-}
+   }
 
 - (void)didReceiveMemoryWarning
 {
@@ -65,38 +53,33 @@
 
 - (IBAction)breakfastButton:(id)sender
 {
-    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
-    
-    AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
-    scanExpression.limit = @10;
-    
-    [[dynamoDBObjectMapper scan:[AWSBreakfastMenu class]
-                     expression:scanExpression]
-     continueWithBlock:^id(BFTask *task) {
-         if (task.error) {
-             NSLog(@"The request failed. Error: [%@]", task.error);
-         }
-         if (task.exception) {
-             NSLog(@"The request failed. Exception: [%@]", task.exception);
-         }
-         if (task.result) {
-             AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
-             _menu = [[NSMutableArray alloc]init];
-             
-             for (AWSBreakfastMenu *awsBreakfastMenuItem in paginatedOutput.items) {
-                 MenuItem *item = [[MenuItem alloc] initWithName:awsBreakfastMenuItem.name price:awsBreakfastMenuItem.price andDescription:awsBreakfastMenuItem.ingrediants];
-                 [_menu addObject:item];
-             }
-             
-             for (MenuItem *item in _menu) {
-                 NSLog(item.toString);
-             }
-             [self performSegueWithIdentifier:@"toItemView" sender:self];
-         }
-         return nil;
-     }];
-    
-    
+    _menuName = @"breakfastMenu";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
+}
+
+- (IBAction)fryerButton:(id)sender {
+    _menuName = @"fryerMenu";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
+}
+
+- (IBAction)deliButton:(id)sender {
+    _menuName = @"deliMenu";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
+}
+
+- (IBAction)wrapsButton:(id)sender {
+    _menuName = @"wrapsMenu";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
+}
+
+- (IBAction)specialsButton:(id)sender {
+    _menuName = @"specialsMenu";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
+}
+
+- (IBAction)recentOrdersButton:(id)sender {
+    _menuName = @"recentOrders";
+    [self performSegueWithIdentifier:@"toItemView" sender:self];
 }
 
 
@@ -114,61 +97,13 @@
 }
 
 
-
-//- (NSMutableArray*)getBreakfastMenu
-//{
-//    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
-//
-//    AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
-//    scanExpression.limit = @10;
-//
-//    [[dynamoDBObjectMapper scan:[AWSBreakfastMenu class]
-//                     expression:scanExpression]
-//     continueWithBlock:^id(BFTask *task) {
-//         if (task.error) {
-//             NSLog(@"The request failed. Error: [%@]", task.error);
-//         }
-//         if (task.exception) {
-//             NSLog(@"The request failed. Exception: [%@]", task.exception);
-//         }
-//         if (task.result) {
-//             AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
-//             _menu = [[NSMutableArray alloc]init];
-//
-//             for (AWSBreakfastMenu *awsBreakfastMenuItem in paginatedOutput.items) {
-//                 MenuItem *item = [[MenuItem alloc] initWithName:awsBreakfastMenuItem.name price:awsBreakfastMenuItem.price andDescription:awsBreakfastMenuItem.ingrediants];
-//                 [_menu addObject:item];
-//             }
-//
-//             [self breakfastButton:self];
-//         }
-//         return nil;
-//     }];
-//
-//    return nil;
-//
-//
-//}
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ItemViewController *ivc = [segue destinationViewController];
     
-    [ivc setUser:_user];
+    ivc.user = _user;
+    ivc.menuName = _menuName;
     
-    //    if ([[segue identifier] isEqualToString:@"breakfast"]) {
-    ivc.menu = _menu;
-    //    }
-    //
-    //
-    //    else if ([[segue identifier] isEqualToString:@"fryer"]) {
-    //        ivc.menu = [self getBreakfastMenu];
-    //    }
-    
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 

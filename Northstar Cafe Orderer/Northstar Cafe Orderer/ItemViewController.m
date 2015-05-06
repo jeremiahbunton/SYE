@@ -7,6 +7,8 @@
 //
 
 #import "ItemViewController.h"
+#import "AWSBreakfastMenu.h"
+#import "AWSFryerMenu.h"
 
 @interface ItemViewController ()
 
@@ -31,9 +33,91 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _menu = [[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
     
+    
+    
+    if ([_menuName isEqualToString:@"breakfastMenu"]) {
+        [self getBreakfastMenu];
+    }
+    
+    else if ([_menuName isEqualToString:@"fryerMenu"]) {
+        [self getFryerMenu];
+    }
+    
 }
+
+
+
+-(void)getBreakfastMenu
+{
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    
+    AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
+    scanExpression.limit = @10;
+    
+    [[dynamoDBObjectMapper scan:[AWSBreakfastMenu class]
+                     expression:scanExpression]
+     continueWithBlock:^id(BFTask *task) {
+         if (task.error) {
+             NSLog(@"The request failed. Error: [%@]", task.error);
+         }
+         if (task.exception) {
+             NSLog(@"The request failed. Exception: [%@]", task.exception);
+         }
+         if (task.result) {
+             AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+             _menu = [[NSMutableArray alloc]init];
+             
+             for (AWSBreakfastMenu *awsBreakfastMenuItem in paginatedOutput.items) {
+                 MenuItem *item = [[MenuItem alloc] initWithName:awsBreakfastMenuItem.name price:awsBreakfastMenuItem.price andDescription:awsBreakfastMenuItem.ingredients];
+                 [_menu addObject:item];
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+             });
+         }
+         return nil;
+     }];
+
+}
+
+-(void)getFryerMenu
+{
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    
+    AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
+    scanExpression.limit = @10;
+    
+    [[dynamoDBObjectMapper scan:[AWSFryerMenu class]
+                     expression:scanExpression]
+     continueWithBlock:^id(BFTask *task) {
+         if (task.error) {
+             NSLog(@"The request failed. Error: [%@]", task.error);
+         }
+         if (task.exception) {
+             NSLog(@"The request failed. Exception: [%@]", task.exception);
+         }
+         if (task.result) {
+             AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+             _menu = [[NSMutableArray alloc]init];
+             
+             for (AWSFryerMenu *awsFryerMenuItem in paginatedOutput.items) {
+                 MenuItem *item = [[MenuItem alloc] initWithName:awsFryerMenuItem.name price:awsFryerMenuItem.price andDescription:awsFryerMenuItem.ingredients];
+                 [_menu addObject:item];
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+             });
+         }
+         return nil;
+     }];
+    
+}
+
+
+
 
 
 // Must have this method implemented to tell the UITableView how many rows it needs to prepare for.
@@ -63,12 +147,6 @@
     
     return cell;
 }
-
-
--(void)setUser:(NSString *)user{
-    _user = user;
-}
-
 
 - (void)didReceiveMemoryWarning
 {

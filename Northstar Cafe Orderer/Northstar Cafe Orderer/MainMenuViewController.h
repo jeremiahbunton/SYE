@@ -14,11 +14,15 @@
 @interface MainMenuViewController : UIViewController
 
 
-@property MenuItem *menuItem;
-@property NSMutableArray *menu;
+@property NSString *menuName;
 @property (nonatomic, strong) NSString *user;
 
-- (NSMutableArray*)getBreakfastMenu;
+//- (NSMutableArray*)getBreakfastMenu;
 - (IBAction)breakfastButton:(id)sender;
+- (IBAction)fryerButton:(id)sender;
+- (IBAction)deliButton:(id)sender;
+- (IBAction)wrapsButton:(id)sender;
+- (IBAction)specialsButton:(id)sender;
+- (IBAction)recentOrdersButton:(id)sender;
 
 @end

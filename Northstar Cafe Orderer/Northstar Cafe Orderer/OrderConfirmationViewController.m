@@ -144,6 +144,8 @@
     order.order = _order;
     order.orderDates = _dateString;
     order.orderConfirmationNumber = _orderConfirmationNumber;
+    order.orderName = _menuItem.name;
+    
     return order;
 }
 
