@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ItemViewController.h"
 #import "ConfirmedOrderViewController.h"
+#import "AWSOrder.h"
 
 //#import <AWSDynamoDB/AWSDynamoDB.h>
 //#import <AWSCore/AWSCore.h>
@@ -22,8 +23,8 @@
 @property NSMutableString *order;
 
 @property (nonatomic,strong) MenuItem *menuItem;
+@property (nonatomic, strong) AWSOrder *orderObj;
 @property (nonatomic, strong) NSString *user;
-
 
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField;

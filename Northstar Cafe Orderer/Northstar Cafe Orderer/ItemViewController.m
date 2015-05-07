@@ -9,15 +9,13 @@
 #import "ItemViewController.h"
 #import "AWSBreakfastMenu.h"
 #import "AWSFryerMenu.h"
+#import "AWSWrapsMenu.h"
 
 @interface ItemViewController ()
 
 @end
 
 @implementation ItemViewController
-
-
-
 
 
 
@@ -44,6 +42,10 @@
     
     else if ([_menuName isEqualToString:@"fryerMenu"]) {
         [self getFryerMenu];
+    }
+    
+    else if ([_menuName isEqualToString:@"wrapsMenu"]) {
+        [self getWrapsMenu];
     }
     
 }
@@ -82,6 +84,43 @@
      }];
 
 }
+
+
+-(void)getWrapsMenu
+{
+    AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
+    
+    AWSDynamoDBScanExpression *scanExpression = [AWSDynamoDBScanExpression new];
+    scanExpression.limit = @10;
+    
+    [[dynamoDBObjectMapper scan:[AWSWrapsMenu class]
+                     expression:scanExpression]
+     continueWithBlock:^id(BFTask *task) {
+         if (task.error) {
+             NSLog(@"The request failed. Error: [%@]", task.error);
+         }
+         if (task.exception) {
+             NSLog(@"The request failed. Exception: [%@]", task.exception);
+         }
+         if (task.result) {
+             AWSDynamoDBPaginatedOutput *paginatedOutput = task.result;
+             _menu = [[NSMutableArray alloc]init];
+             
+             for (AWSWrapsMenu *awsWrapsMenuItem in paginatedOutput.items) {
+                 MenuItem *item = [[MenuItem alloc] initWithName:awsWrapsMenuItem.name price:awsWrapsMenuItem.price andDescription:awsWrapsMenuItem.ingredients];
+                 [_menu addObject:item];
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+             });
+         }
+         return nil;
+     }];
+    
+}
+
+
+
 
 -(void)getFryerMenu
 {

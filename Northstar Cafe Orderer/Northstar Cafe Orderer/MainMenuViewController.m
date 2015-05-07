@@ -78,9 +78,9 @@
 }
 
 - (IBAction)recentOrdersButton:(id)sender {
-    _menuName = @"recentOrders";
-    [self performSegueWithIdentifier:@"toItemView" sender:self];
+    [self performSegueWithIdentifier:@"toRecentOrdersView" sender:self];
 }
+
 
 
 
@@ -99,10 +99,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ItemViewController *ivc = [segue destinationViewController];
-    
-    ivc.user = _user;
-    ivc.menuName = _menuName;
+    if ([segue.identifier isEqualToString:@"toItemView"]) {
+        ItemViewController *ivc = [segue destinationViewController];
+        ivc.user = _user;
+        ivc.menuName = _menuName;
+    }
+    else if ([segue.identifier isEqualToString:@"toRecentOrdersView"]) {
+        RecentOrdersViewController *rovc = [segue destinationViewController];
+        rovc.user = _user;
+        rovc.menuName = _menuName;
+        
+    }
     
 }
 

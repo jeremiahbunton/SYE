@@ -11,6 +11,8 @@
 		E30A038D1AEEE9E90088EF9F /* AWSBreakfastMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E30A038C1AEEE9E90088EF9F /* AWSBreakfastMenu.m */; };
 		E31514691ADF0B9E003DFB9E /* AWSOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E31514681ADF0B9E003DFB9E /* AWSOrder.m */; };
 		E32966E51AFAA7B10046ED08 /* AWSFryerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E32966E41AFAA7B10046ED08 /* AWSFryerMenu.m */; };
+		E32966E81AFAB9660046ED08 /* AWSWrapsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E32966E71AFAB9660046ED08 /* AWSWrapsMenu.m */; };
+		E32966EE1AFB07DF0046ED08 /* RecentOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32966ED1AFB07DF0046ED08 /* RecentOrdersViewController.m */; };
 		E38B709B1A72E46600BEB0BB /* OrderConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */; };
 		E3A734F51A3B78CB00F0321A /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F41A3B78CB00F0321A /* MainMenuViewController.m */; };
 		E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A734F71A3B798A00F0321A /* ItemViewController.m */; };
@@ -53,6 +55,10 @@
 		E31514681ADF0B9E003DFB9E /* AWSOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSOrder.m; sourceTree = "<group>"; };
 		E32966E31AFAA7B10046ED08 /* AWSFryerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFryerMenu.h; sourceTree = "<group>"; };
 		E32966E41AFAA7B10046ED08 /* AWSFryerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSFryerMenu.m; sourceTree = "<group>"; };
+		E32966E61AFAB9660046ED08 /* AWSWrapsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSWrapsMenu.h; sourceTree = "<group>"; };
+		E32966E71AFAB9660046ED08 /* AWSWrapsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSWrapsMenu.m; sourceTree = "<group>"; };
+		E32966EC1AFB07DF0046ED08 /* RecentOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentOrdersViewController.h; sourceTree = "<group>"; };
+		E32966ED1AFB07DF0046ED08 /* RecentOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentOrdersViewController.m; sourceTree = "<group>"; };
 		E38B70991A72E46600BEB0BB /* OrderConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderConfirmationViewController.h; sourceTree = "<group>"; };
 		E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderConfirmationViewController.m; sourceTree = "<group>"; };
 		E3A734F31A3B78CB00F0321A /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 				E30A038C1AEEE9E90088EF9F /* AWSBreakfastMenu.m */,
 				E32966E31AFAA7B10046ED08 /* AWSFryerMenu.h */,
 				E32966E41AFAA7B10046ED08 /* AWSFryerMenu.m */,
+				E32966E61AFAB9660046ED08 /* AWSWrapsMenu.h */,
+				E32966E71AFAB9660046ED08 /* AWSWrapsMenu.m */,
 				E3C337031A3A51B100654DE0 /* Main.storyboard */,
 				E3B805C11AAE34140033692B /* ConfirmedOrderViewController.h */,
 				E3B805C21AAE34140033692B /* ConfirmedOrderViewController.m */,
@@ -170,6 +178,8 @@
 				E38B709A1A72E46600BEB0BB /* OrderConfirmationViewController.m */,
 				E3B805C41AAE34E20033692B /* Order.h */,
 				E3B805C51AAE34E20033692B /* Order.m */,
+				E32966EC1AFB07DF0046ED08 /* RecentOrdersViewController.h */,
+				E32966ED1AFB07DF0046ED08 /* RecentOrdersViewController.m */,
 				E3A734F61A3B798A00F0321A /* ItemViewController.h */,
 				E3A734F71A3B798A00F0321A /* ItemViewController.m */,
 				E3A734F91A3B79FA00F0321A /* MenuItem.h */,
@@ -345,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32966EE1AFB07DF0046ED08 /* RecentOrdersViewController.m in Sources */,
 				E38B709B1A72E46600BEB0BB /* OrderConfirmationViewController.m in Sources */,
 				E3A734F51A3B78CB00F0321A /* MainMenuViewController.m in Sources */,
 				E3B805C31AAE34140033692B /* ConfirmedOrderViewController.m in Sources */,
@@ -352,6 +363,7 @@
 				E3A734F81A3B798A00F0321A /* ItemViewController.m in Sources */,
 				E3B805C61AAE34E20033692B /* Order.m in Sources */,
 				E31514691ADF0B9E003DFB9E /* AWSOrder.m in Sources */,
+				E32966E81AFAB9660046ED08 /* AWSWrapsMenu.m in Sources */,
 				E3A734FB1A3B79FA00F0321A /* MenuItem.m in Sources */,
 				E3C337021A3A51B100654DE0 /* AppDelegate.m in Sources */,
 				E32966E51AFAA7B10046ED08 /* AWSFryerMenu.m in Sources */,

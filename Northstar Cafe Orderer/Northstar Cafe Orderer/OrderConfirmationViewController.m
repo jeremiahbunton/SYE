@@ -79,22 +79,33 @@
     
     [_order appendString:@"Ingredients: "];
     [_order appendString:_menuItem.toString];
-    [_order appendString:@"\n"];
-    [_order appendString:@"Extras: "];
-    [_order appendString:_extrasInputTextField.text];
-    _extrasInputTextField.text = @"";
     
     _extrasInputTextField.delegate = self;
     _orderConfirmationView.text = _order;
-
+    
 }
 
 // Dont use a string to maintain order details instead append to textview and then save before you leave the view.
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    [_order appendString:textField.text];
-    _orderConfirmationView.text = _order;
     
+    
+    if ([_extrasInputTextField.text length] > 0 && [_order containsString:@"Extras"]) {
+        [_order appendString:@", "];
+        
+        [_order appendString:_extrasInputTextField.text];
+        _orderConfirmationView.text = _order;
+        _extrasInputTextField.text = @"";
+    }
+    else if ([_extrasInputTextField.text length] > 0) {
+        [_order appendString:@"\n"];
+        [_order appendString:@"Extras: "];
+        
+        [_order appendString:_extrasInputTextField.text];
+        _orderConfirmationView.text = _order;
+        _extrasInputTextField.text = @"";
+        
+    }
     [textField resignFirstResponder];
     return YES;
 }
@@ -138,7 +149,7 @@
     
     
     _orderConfirmationNumber = [NSString stringWithFormat:@"%@%@", _user, [_dateString stringByReplacingOccurrencesOfString:@" " withString:@""]];
-
+    
     
     order.userID = _user;
     order.order = _order;
@@ -151,12 +162,46 @@
 
 
 
+
 - (IBAction)confirmOrder:(id)sender {
     
     
+    if ([_extrasInputTextField.text length] > 0 && [_order containsString:@"Extras"]) {
+        
+        
+        
+        // Somewhere there is a new line char being entered after the text from the extras field is appended to the order string.  Find it and remove it and then all should be ready to go.
+        
+        
+        
+        
+//        NSString *tmp = [_order substringFromIndex:NSMaxRange([_order rangeOfString:@"Extras"])];
+//        [tmp stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+//        NSString *strippedOrder = [[_order substringToIndex:NSMaxRange([_order rangeOfString:@"Extras"])] stringByAppendingString:tmp];
+//        
+//        NSMutableString *mutableStrippedOrder = [[NSMutableString alloc] initWithString:strippedOrder];
+//        
+//        _order = mutableStrippedOrder;
+        [_order appendString:@","];
+        
+        [_order appendString:_extrasInputTextField.text];
+        _orderConfirmationView.text = _order;
+        _extrasInputTextField.text = @"";
+    }
+    
+    else if ([_extrasInputTextField.text length] > 0) {
+        [_order appendString:@"\n"];
+        [_order appendString:@"Extras: "];
+        
+        [_order appendString:_extrasInputTextField.text];
+        _orderConfirmationView.text = _order;
+        _extrasInputTextField.text = @"";
+
+    }
+
+    
     AWSOrder *order;
     order = [self setAWSOrder];
-    
     
     
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];

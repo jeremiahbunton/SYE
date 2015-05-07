@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuItem.h"
+#import "AWSBreakfastMenu.h"
+#import "AWSFryerMenu.h"
+#import "AWSWrapsMenu.h"
 #import "OrderConfirmationViewController.h"
 #import "ConfirmedOrderViewController.h"
 
@@ -17,8 +20,6 @@
 @property NSMutableArray* menu;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *menuName;
-
-@property NSString* test;
 @property (nonatomic, strong) NSString *user;
 
 @end
