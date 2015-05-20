@@ -11,6 +11,7 @@
 #import "AWSOrder.h"
 #import "ConfirmedOrderViewController.h"
 #import "OrderConfirmationViewController.h"
+#import <AWSDynamoDB/AWSDynamoDB.h>
 
 @interface RecentOrdersViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 

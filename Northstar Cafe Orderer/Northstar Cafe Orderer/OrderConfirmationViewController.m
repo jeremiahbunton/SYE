@@ -174,14 +174,6 @@
         
         
         
-        
-//        NSString *tmp = [_order substringFromIndex:NSMaxRange([_order rangeOfString:@"Extras"])];
-//        [tmp stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-//        NSString *strippedOrder = [[_order substringToIndex:NSMaxRange([_order rangeOfString:@"Extras"])] stringByAppendingString:tmp];
-//        
-//        NSMutableString *mutableStrippedOrder = [[NSMutableString alloc] initWithString:strippedOrder];
-//        
-//        _order = mutableStrippedOrder;
         [_order appendString:@","];
         
         [_order appendString:_extrasInputTextField.text];
